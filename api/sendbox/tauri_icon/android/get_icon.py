@@ -122,7 +122,7 @@ def create_zip(output_dir, zip_name):
                 arcname = os.path.relpath(file_path, output_dir)
                 zipf.write(file_path, arcname)
 
-def get_icon(input_file: str, output_dir: Path, is_zip: bool) -> None:
+def create_icon(input_file: str, output_dir: Path, is_zip: bool) -> None:
     generate_images(input_file, output_dir)
     if is_zip:
         create_zip(output_dir, output_dir.with_suffix(".zip"))

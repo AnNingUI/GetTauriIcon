@@ -13,7 +13,10 @@ from api.storage import Storage
 from api.system import System
 from webview import Window
 
-class API(System, Storage):
+class API(
+    System, 
+    Storage,
+):
     '''业务层API，供前端JS调用'''
 
     def setWindow(self, window: Window):

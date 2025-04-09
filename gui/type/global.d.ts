@@ -5,7 +5,7 @@ declare interface Window {
 
 declare type Cross<T extends any[]> = T extends [infer H, ...infer R] ? H & Cross<R> : {}
 
-type PyWebViewApi = Cross<[_PyWebViewSystem, _PyWebViewStorage]>
+type PyWebViewApi = Cross<[_PyWebViewSystem, _PyWebViewStorage, _PyWebViewTauriIcon]>
 
 interface PyWebView {
   api: PyWebViewApi
@@ -122,4 +122,21 @@ interface _PyWebViewStorage {
    * @returns
    */
   storage_set: (key: string, value: string) => Promise<void>
+}
+
+enum IconOSType {
+  Computer = 0,
+  Android = 1,
+  IOS = 2
+}
+interface _PyWebViewTauriIcon {
+  /**
+   * 生成tauri图标文件夹 及 压缩包
+   * @param osType 系统类型
+   * @param inputFile 源文件路径
+   * @param outputDir 生成目录
+   * @param isZip 是否生成压缩包
+   * @returns
+   */
+  tauri_icon_create_icon: (osType: IconOSType, inputFile: string, outputDir: string, isZip: boolean) => Promise<void | string>
 }

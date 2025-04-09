@@ -100,7 +100,7 @@ def process_image(
         temp_png.unlink()  # 删除临时 PNG 文件
 
 
-def get_icon(input_file: str, output_dir: Path, is_zip: bool) -> None:
+def create_icon(input_file: str, output_dir: Path, is_zip: bool) -> None:
 
     output_zip = Path(output_dir).with_suffix(".zip") if is_zip else None
     process_image(input_file, output_dir, output_zip)
