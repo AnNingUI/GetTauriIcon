@@ -24,8 +24,8 @@
 </template>
 
 <script setup>
-import BtnUpdate from './BtnUpdate.vue'
 import { ref } from 'vue'
+import BtnUpdate from './BtnUpdate.vue'
 
 defineProps({
   msg: String
