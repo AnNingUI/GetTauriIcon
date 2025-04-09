@@ -11,11 +11,14 @@ usage: 在Javascript中调用window.pywebview.api.<methodname>(<parameters>)
 
 from api.storage import Storage
 from api.system import System
+from webview import Window
 
-
-class API(System, Storage):
+class API(
+    System, 
+    Storage,
+):
     '''业务层API，供前端JS调用'''
 
-    def setWindow(self, window):
+    def setWindow(self, window: Window):
         '''获取窗口实例'''
         System._window = window

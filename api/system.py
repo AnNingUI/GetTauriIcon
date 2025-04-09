@@ -15,6 +15,7 @@ import os
 import subprocess
 
 import webview
+from webview import Window
 
 from pyapp.config.config import Config
 from pyapp.update.update import AppUpdate
@@ -23,9 +24,9 @@ from pyapp.update.update import AppUpdate
 class System():
     '''系统类'''
 
-    _window = None
+    _window: Window = None
 
-    def system_py2js(self, func, info):
+    def system_py2js(self, func: str, info: str):
         '''调用js中挂载到window的函数'''
         infoJson = json.dumps(info)
         System._window.evaluate_js(f"{func}('{infoJson}')")
