@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 '''
 FilePath: /PPX/api/db/models.py
-Author: 潘高
-LastEditors: 潘高
+Author: temp: 潘高, AnNingUI
+LastEditors: AnNingUI
 Date: 2023-03-12 20:29:49
 LastEditTime: 2024-08-09 09:50:03
 Description: 创建数据表

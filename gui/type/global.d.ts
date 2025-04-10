@@ -1,3 +1,6 @@
+/**
+ * @author AnNingUI
+ */
 // window 全局类型添加
 declare interface Window {
   pywebview: PyWebView
@@ -96,7 +99,7 @@ interface _PyWebViewSystem {
    * @param directory 文件路径
    * @returns
    */
-  system_pyCreateFileDialog: (fileTypes: string[], directory: string) => Promise<FileInfo>
+  system_pyCreateFileDialog: (fileTypes: string[], directory: string) => Promise<FileInfo[]>
   /**
    * 选择文件夹对话框
    * @inpy api/system.py

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 '''
-Author: 潘高
-LastEditors: 潘高
+Author: temp: 潘高, AnNingUI
+LastEditors: AnNingUI
 Date: 2023-03-26 20:48:26
 LastEditTime: 2025-02-10 14:25:13
 Description: 系统类

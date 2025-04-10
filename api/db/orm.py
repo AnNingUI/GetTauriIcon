@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 '''
-Author: 潘高
-LastEditors: 潘高
+Author: temp: 潘高, AnNingUI
+LastEditors: AnNingUI
 Date: 2023-03-12 20:08:30
 LastEditTime: 2024-01-22 17:08:27
 Description: 操作数据库类

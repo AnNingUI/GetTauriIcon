@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 '''
-Author: 潘高
-LastEditors: 潘高
-Date: 2022-03-23 15:41:46
-LastEditTime: 2024-09-08 20:29:41
+Author: temp: 潘高, AnNingUI
+LastEditors: AnNingUI
+Date: 2025-04-08 15:41:46
+LastEditTime: 2025-04-10 20:29:41
 Description: 生成客户端主程序
 usage: 运行前，请确保本机已经搭建Python3开发环境，且已经安装 pywebview 模块。
 '''
@@ -69,7 +69,7 @@ def WebViewApp(ifCef=False):
     initWidth = int(width * 2 / 3)
     initHeight = int(height * 4 / 5)
     minWidth = int(initWidth / 2)
-    minHeight = int(initHeight / 2)
+    minHeight = int(initHeight / 1.5)
 
     # 创建窗口
     window = webview.create_window(title=Config.appName, url=template, js_api=api, width=initWidth, height=initHeight, min_size=(minWidth, minHeight))
