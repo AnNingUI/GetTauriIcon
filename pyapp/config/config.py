@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 '''
-Author: 潘高
-LastEditors: 潘高
-Date: 2022-03-21 16:54:23
-LastEditTime: 2025-02-10 14:03:02
+Author: temp:潘高, AnNingUI
+LastEditors: AnNingUI
+Date: 2025-04-08 16:54:23
+LastEditTime: 2025-04-10 14:03:02
 Description: 配置文件
 usage:
     from pyapp.config.config import Config
@@ -23,13 +23,13 @@ class Config:
     ##
     # 程序基础配置信息
     ##
-    appName = 'PPX'  # 应用名称
-    appNameEN = 'ppx'    # 应用名称-英文（用于生成缓存文件夹，必须是英文）
-    appVersion = "V5.2.2"  # 应用版本号
-    appDeveloper = "PanGao"  # 应用开发者
-    appBlogs = "https://blog.pangao.vip"  # 个人博客
-    appPackage = 'vip.pangao'    # 应用包名，用于在本地电脑生成 vip.pangao.ppx 唯一文件夹
-    appUpdateUrl = 'https://api.github.com/repos/pangao1990/ppx/releases/latest'    # 获取程序更新信息 https://api.github.com/repos/pangao1990/ppx/releases/latest
+    appName = 'Get Tauri Icon'  # 应用名称
+    appNameEN = 'get_tauri_icon'    # 应用名称-英文（用于生成缓存文件夹，必须是英文）
+    appVersion = "V1.0.1"  # 应用版本号
+    appDeveloper = "AnNingUI"  # 应用开发者
+    appBlogs = "https://github.com/AnNingUI"  # 个人博客
+    appPackage = 'vip.anningui'    # 应用包名，用于在本地电脑生成 vip.pangao.ppx 唯一文件夹
+    appUpdateUrl = 'null'    # 获取程序更新信息 https://api.github.com/repos/pangao1990/ppx/releases/latest
     appISSID = 'F35003AB-441A-C0A6-4527-937E6A02F789'    # Inno Setup 打包唯一编号。在执行 pnpm run init 之前，请设置为空，程序会自动生成唯一编号，生成后请勿修改！！！
 
     ##

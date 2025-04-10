@@ -21,7 +21,7 @@
 └-----------------------------------┘
 
 Quality is paramount
-./get_icon.py name.{png, jpg, svg}... => {32x32.png...}.zip
+./get_icon.py name.{png, jpg, svg，...}... => {32x32.png...}.zip
 """
 
 import sys
@@ -100,8 +100,9 @@ def process_image(
         temp_png.unlink()  # 删除临时 PNG 文件
 
 
-def create_icon(input_file: str, output_dir: Path, is_zip: bool) -> None:
-
-    output_zip = Path(output_dir).with_suffix(".zip") if is_zip else None
-    process_image(input_file, output_dir, output_zip)
+def create_icon(input_file: str, output_dir: str, is_zip: bool) -> None:
+    output_dir_path = Path(output_dir) / "icons"
+    output_dir_path.mkdir(parents=True, exist_ok=True)
+    output_zip = (Path(output_dir) / "zip_c").with_suffix(".zip") if is_zip else None
+    process_image(input_file, output_dir_path, output_zip)
 

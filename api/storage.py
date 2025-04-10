@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 '''
-Author: 潘高
-LastEditors: 潘高
+Author: temp: 潘高, AnNingUI
+LastEditors: AnNingUI
 Date: 2023-03-25 19:39:03
 LastEditTime: 2024-12-17 14:06:00
 Description: 操作存储在数据库中的数据
