@@ -24,7 +24,7 @@ Quality is paramount
 ./get_icon.py name.{png, jpg, svg，...}... => {32x32.png...}.zip
 """
 
-import sys
+
 import zipfile
 from pathlib import Path
 from PIL import Image
@@ -65,7 +65,7 @@ def process_image(
         "32x32.png": (32, 32),
         "128x128.png": (128, 128),
         "128x128@2.png": (256, 256),
-        "icon.icns": (512, 512),
+        # "icon.icns": (512, 512),
         "icon.png": (512, 512),
         "Square30x30Logo.png": (30, 30),
         "Square44x44Logo.png": (44, 44),
@@ -83,10 +83,15 @@ def process_image(
     resize_and_export(image, sizes, output_dir)
 
     # 生成多尺寸 ICO 图标
-    icon_sizes = [(16, 16), (32, 32), (48, 48), (64, 64), (128, 128), (256, 256)]
-    icon_path = output_dir / "icon.ico"
-    icon_images = Image.open(output_dir / "icon.png")
-    icon_images.save(icon_path, format="ICO", sizes=icon_sizes)
+    icon_sizes_ico = [(16, 16), (32, 32), (48, 48), (64, 64), (128, 128), (256, 256)]
+    icon_path_ico = output_dir / "icon.ico"
+    icon_images_ico = Image.open(output_dir / "icon.png")
+    icon_images_ico.save(icon_path_ico, format="ICO", sizes=icon_sizes_ico)
+
+    icon_sizes_icns = [(16, 16), (32, 32), (128, 128), (256, 256), (512, 512), (1024, 1024)]
+    icon_path_icns = output_dir / "icon.icns"
+    icon_images_icns = Image.open(output_dir / "icon.png")
+    icon_images_icns.save(icon_path_icns, format="ICNS", sizes=icon_sizes_icns)
 
     # 压缩文件
     if not output_zip is None:
