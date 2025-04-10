@@ -23,3 +23,4 @@ In addition, it is optional to get the zip file.
 
 ## TODO List
 - [] Since the author doesn't have a macos system, he can't write a script to output ios image format at the moment, if someone can provide a script, please submit a PR!
+- [] Finish `I18n`, since this is a small project for personal use, the addition of `I18n` may increase the size of the file, this can be seen in the community comments

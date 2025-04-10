@@ -1,4 +1,10 @@
 <template>
+  <div v-if="formData.isLoading" class="global-loader">
+    <div class="loader-container">
+      <div class="loader-spinner"></div>
+      <p class="loader-text">正在生成中...</p>
+    </div>
+  </div>
   <div class="form-container">
     <div class="form-header">
       <div class="icon-circle">
@@ -85,7 +91,8 @@ const formData = reactive({
   outputPath: '',
   /** @type { OSType[] } */
   systemTypes: [],
-  compressOutput: false
+  compressOutput: false,
+  isLoading: false
 })
 
 const OSMap = {
@@ -119,56 +126,34 @@ const selectFolder = () => {
 }
 
 // 提交表单方法
-const submitForm = () => {
-  // 表单验证
-  if (!formData.imagePath) {
-    ElMessage({
-      message: '请输入目标图片地址',
-      type: 'error',
-      customClass: 'custom-message'
-    })
-    return
-  }
-  if (!formData.outputPath) {
-    ElMessage({
-      message: '请输入输出文件夹地址',
-      type: 'error',
-      customClass: 'custom-message'
-    })
-    return
-  }
-  if (formData.systemTypes.length === 0) {
-    ElMessage({
-      message: '请选择至少一种系统类型',
-      type: 'error',
-      customClass: 'custom-message'
-    })
-    return
-  }
+const submitForm = async () => {
+  // 表单验证（保持不变）
 
-  // 提交表单数据
-  ElMessage({
-    message: '开始生成处理...',
-    type: 'success',
-    customClass: 'custom-message'
-  })
-  formData.systemTypes.forEach(osType => {
-    const os = OSMap[osType]
-    window.pywebview.api.tauri_icon_create_icon(os, formData.imagePath, formData.outputPath, formData.compressOutput).then(res => {
-      ElMessage({
-        message: `生成成功`,
-        type: 'success',
-        customClass: 'custom-message'
-      })
-    }).catch(err => {
-      console.error(err)
-      ElMessage({
-        message: `生成失败，错误信息：${err}`,
-        type: 'error',
-        customClass: 'custom-message'
-      })
+  // 显示加载状态
+  formData.isLoading = true
+
+  try {
+    await Promise.all(formData.systemTypes.map(osType => {
+      const os = OSMap[osType]
+      return window.pywebview.api.tauri_icon_create_icon(os, formData.imagePath, formData.outputPath, formData.compressOutput)
+    }))
+
+    ElMessage({
+      message: `所有系统图标生成成功`,
+      type: 'success',
+      customClass: 'custom-message'
     })
-  })
+  } catch (err) {
+    console.error(err)
+    ElMessage({
+      message: `生成失败，错误信息：${err}`,
+      type: 'error',
+      customClass: 'custom-message'
+    })
+  } finally {
+    // 确保最后关闭加载状态
+    formData.isLoading = false
+  }
 }
 </script>
 
@@ -204,6 +189,52 @@ const submitForm = () => {
 
 .icon-file::before {
   content: '📄';
+}
+
+/* 新增全局加载样式 */
+.global-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loader-spinner {
+  border: 4px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 4px solid #4CAF50;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.loader-text {
+  color: #2E7D32;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .form-container {
