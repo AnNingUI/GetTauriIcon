@@ -23,7 +23,8 @@ class Config:
     ##
     # 程序基础配置信息
     ##
-    appName = 'Get Tauri Icon'  # 应用名称
+    # 判断系统 win 叫 Get Tauri Icon，的名字，其他系统叫 GetTauriIcon
+    appName = 'Get Tauri Icon' if platform.system() == 'Windows' else 'GetTauriIcon'
     appNameEN = 'get_tauri_icon'    # 应用名称-英文（用于生成缓存文件夹，必须是英文）
     appVersion = "V1.0.1"  # 应用版本号
     appDeveloper = "AnNingUI"  # 应用开发者
