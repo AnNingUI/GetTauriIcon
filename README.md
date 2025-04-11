@@ -4,6 +4,9 @@
 ## 如何运行或者打包源码
 初始化与打包看[这里](https://github.com/pangao1990/PPX/blob/main/README.md)
 
+## UI展示
+![UI Show](./show.png)
+
 ## 如何使用
 1. 打包安卓系列icon
    - 第一栏中选择要修改的目标图片(ep: 除了普通图像文件外还支持.svg)
