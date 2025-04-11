@@ -5,6 +5,9 @@
 ## How to run or package source code
 Initialization and packaging look [here](https://github.com/pangao1990/PPX/blob/main/README.md)
 
+## UI Show
+![UI Show](./show.png)
+
 ## How to use
 1. Pack the Android icon
    - In the first column, select the target image you want to modify (ep: besides normal image files, .svg is also supported).
